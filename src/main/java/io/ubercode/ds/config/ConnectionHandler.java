@@ -91,8 +91,8 @@ public class ConnectionHandler
             while (rs != null && rs.next()) {
                 try {
                     ConnectionConfig externalConnection = new ConnectionConfig(rs.getString("NAME"), rs.getString("TYPE"), rs.getString("JNDI_CONTEXT"), rs.getString("JNDI_NAME"), rs.getString("JDBC_DRIVER"), rs.getString("JDBC_URL"), rs.getString("JDBC_USERNAME"), rs.getString("JDBC_PASSWORD"), rs.getString("DESCRIPTION"));
-                    externalConnection.createConnectionPool();
                     connectionsMap.put(externalConnection.name, externalConnection);
+                    externalConnection.createConnectionPool();
                     if (!externalConnection.isValid())
                         log.warn("EXTERNAL CONNECTION [ " + externalConnection + "] WAS FOUND BUT WAS NOT VALID...");
                 }

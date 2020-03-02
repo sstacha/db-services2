@@ -33,7 +33,9 @@ EXPOSE 8080
 # docker cp romantic_perlman:/nginx.key .
 
 # TO BUILD
-# docker build -t db-services .
+# docker image rm db-services
+# docker build -t db-services:t9jdk11v6 .
+# docker tag db-services:t9jdk11v6 db-services
 
 # TO TEST
 # docker run -it --name db-services -p 8080:8080 -v db-services-data:/root/data/dbServices db-services
@@ -43,7 +45,7 @@ EXPOSE 8080
 # docker login
 # docker push sasonline/db-services
 # docker push sasonline/db-services:t9jdk11v2
-# docker tag db-services sasonline/db-services:t9jdk11v2
+# docker tag db-services sasonline/db-services:t9jdk11v6
 
 # OLD STUFF LEFT OVER FOR EXAMPLES
 # docker run -it --volumes-from db-services --name datamgr busybox

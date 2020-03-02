@@ -44,6 +44,7 @@ public class ConnectionConfig {
     public String jdbcPassword;
     public String description;
     private HikariDataSource dataSource;
+    private boolean is_initialized = false;
 
     public ConnectionConfig() { }
     public ConnectionConfig(String name, String type, String jndiContext, String jndiDatasource, String jdbcDriver,
@@ -160,6 +161,7 @@ public class ConnectionConfig {
         config.addDataSourceProperty("elideSetAutoCommits", "true");
         config.addDataSourceProperty("maintainTimeStats", "false");
         this.dataSource = new HikariDataSource(config);
+        this.is_initialized = true;
     }
     public java.sql.Connection getConnection() throws NamingException, SQLException
     {

@@ -692,14 +692,21 @@ public class ConfigurationConfig
         // convert all crlf and lf to newline; escape with extra \
 //        string = Convert.replace(string, "\r\n", "\n");
 //        string = Convert.replace(string, "\r", "\n");
+        string = Convert.replace(string, "\\", "\\\\", "\\\\");
+        string = Convert.replace(string, "\b", "\\b", "\\b");
+        string = Convert.replace(string, "\f", "\\f", "\\f");
         string = Convert.replace(string, "\r", "\\r", "\\r");
         string = Convert.replace(string, "\n", "\\n", "\\n");
         // escape any whitespace chars that cause problems
         string = Convert.replace(string, "\t", "\\t", "\\t");
-        // convert all quotes to double escaped quotes
+        // convert all quotes to escaped quotes
         string = Convert.replace(string, "\"", "\\\"");
         string = Convert.replace(string, "'", "\\\'", "\\\'");
-        string = Convert.replace(string, "\'", "\\\'", "\\\'");
+
+        // convert all quotes to double escaped quotes
+//        string = Convert.replace(string, "\"", "\\\"");
+//        string = Convert.replace(string, "'", "\\\'", "\\\'");
+//        string = Convert.replace(string, "\'", "\\\'", "\\\'");
 //        System.out.println(string);
       	return string;
     }
